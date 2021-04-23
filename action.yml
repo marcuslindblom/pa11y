@@ -1,0 +1,22 @@
+# action.yml
+name: 'Pa11y'
+description: 'Pa11y aims to improve the accessibility of the web through better tooling and automation.'
+branding:
+  icon: 'check-circle'
+  color: 'gray-dark'
+inputs:
+  url:
+    description: 'URL to check'
+    required: true
+  level:
+    description: 'The desired level'
+    required: false
+outputs:
+  count:
+    description: 'The total counts of conformance issues'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.url }}
+    - ${{ inputs.level }}
